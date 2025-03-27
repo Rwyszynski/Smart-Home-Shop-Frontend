@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Strona główna</title>
+  <link rel="stylesheet" type="text/css" href="/CSS/style.css" />
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="Logo" width="100" height="100" />
+    <! "/logo.png" !>
+  </div>
+  <h1 class="smart">Smart Your Home</h1>
+
+  <div class="searh-btn">
+    <input type="text" name="search" placeholder="Szukaj" class="search" />
+    <a href="" class="nav-btn"
+    ><img src="loop.png" alt="loop" class="img2"
+    /></a>
+  </div>
+
+  <div class="login">
+    <p class="log">
+      <span><a href="" class="log-btn">Logowanie</a></span>
+      <img src="icon.png" alt="icon" class="img" />
+    </p>
+    <p class="log"><a href="" class="log-btn">Rejestracja</a></p>
+  </div>
+
+  <div class="backet">
+    <p>Koszyk(0)</p>
+    <p>0zł</p>
+  </div>
+</header>
+
+<div class="navbar">
+  <div class="navbutton menu">MENU</div>
+  <div class="navbutton"><a href="" class="nav-btn">Moje konto</a></div>
+  <div class="navbutton"><a href="" class="nav-btn">Koszyk</a></div>
+  <div class="navbutton"><a href="" class="nav-btn">Wypróbuj</a></div>
+  <div class="navbutton"><a href="" class="nav-btn">Do kasy</a></div>
+</div>
+
+<div class="mainpage">
+  <div class="sidebar">
+    <div class="navbutton menu">Kategorie</div>
+    <div class="sidebutton"><a href="" class="nav-btn">Moduły</a></div>
+    <div class="sidebutton"><a href="" class="nav-btn">Panele</a></div>
+    <div class="sidebutton"><a href="" class="nav-btn">Włączniki</a></div>
+    <div class="sidebutton"><a href="" class="nav-btn">Sensory</a></div>
+    <div class="sidebutton"><a href="" class="nav-btn">Audio</a></div>
+    <div class="sidebutton"><a href="" class="nav-btn">Żarówki</a></div>
+  </div>
+
+  <div class="container">
+    <div class="component">
+      <p class="name" th:text="${Component.componentName}"></p>
+      <p></p>
+      <p>
+        <img
+          src="https://help.ampio.com/assets/modules/M-DIM-2s/600x600.png"
+        />
+      </p>
+      <p>Cena: 750zł netto</p>
+      <a href="" class="add-btn">Dodaj do koszyka</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
