@@ -1,0 +1,11 @@
+<div *ngIf="products.length > 0; else loading">
+  <ul>
+    <li *ngFor="let product of products">
+      {{ product.brand }} {{ product.model }} – {{ product.price }} zł
+    </li>
+  </ul>
+</div>
+
+<ng-template #loading>
+
+</ng-template>
