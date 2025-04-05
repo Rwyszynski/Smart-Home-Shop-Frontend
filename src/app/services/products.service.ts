@@ -11,6 +11,7 @@ export interface Product {
   protocol: string;
   current: number;
   price: number;
+  url: string;
 }
 
 @Injectable({
