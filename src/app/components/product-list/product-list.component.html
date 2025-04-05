@@ -1,17 +1,17 @@
-<div *ngIf="products.length > 0; else loading">
-  <div class="container">
-    <div class="component" *ngFor="let product of products">
-      <p class="name">{{ product.model }}</p>
-      <p></p>
-      <p>
-        <img [src]="product.url" alt="Product Image" />
-      </p>
-      <p>Cena: {{ product.price }} zł netto</p>
-      <a href="#" class="add-btn">Dodaj do koszyka</a>
-    </div>
-  </div>
-</div>
 
+<div class="container" *ngIf="products.length > 0; else loading">
+
+  <div class="component" *ngFor="let product of products">
+    <p class="name">{{product.brand}} {{ product.model }}</p>
+    <p></p>
+    <p>
+      <img src="{{ product.url }}"/>
+    </p>
+    <p>Cena: {{ product.price }} zł netto</p>
+    <a href="" class="add-btn">Dodaj do koszyka</a>
+  </div>
+
+</div>
 <ng-template #loading>
-  <p>Ładowanie...</p>
+
 </ng-template>
