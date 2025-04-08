@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Product {
+
   componentlist_id: number;
   brand: string;
   model: string;
@@ -11,6 +12,7 @@ export interface Product {
   protocol: string;
   current: number;
   price: number;
+  url: any;
 }
 
 @Injectable({

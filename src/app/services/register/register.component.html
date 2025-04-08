@@ -1,0 +1,8 @@
+<form (ngSubmit)="register()" #registrationForm="ngForm">
+  <input type="text" name="name" [(ngModel)]="user.name" required>
+  <input type="text" name="surname" [(ngModel)]="user.surname" required>
+  <input type="email" name="email" [(ngModel)]="user.email" required>
+  <input type="text" name="address" [(ngModel)]="user.address" required>
+  <input type="password" name="password" [(ngModel)]="user.password" required>
+  <button type="submit">Zarejestruj</button>
+</form>

@@ -11,11 +11,12 @@ import {BucketComponent} from './bucket/bucket.component';
 import {CheckoutComponent} from './checkout/checkout.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
 
-  ],
+    ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -27,11 +28,18 @@ import {RegisterComponent} from './register/register.component';
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
     ]),
-    AccountComponent,
+    AppComponent,
     ProductListComponent,
-    SidebarComponent,
+    AccountComponent,
     MenuComponent,
-    AppComponent
+    SidebarComponent,
+    BucketComponent,
+    CheckoutComponent,
+    LoginComponent,
+    RegisterComponent,
+    FormsModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

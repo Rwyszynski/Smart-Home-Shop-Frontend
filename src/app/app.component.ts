@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {SidebarComponent} from './sidebar/sidebar.component';
 import {MenuComponent} from './menu/menu.component';
-import {ProductListComponent} from './components/product-list/product-list.component';
+import {FormsModule} from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ import {ProductListComponent} from './components/product-list/product-list.compo
     MenuComponent,
     SidebarComponent,
     RouterOutlet,
-    ProductListComponent
+    FormsModule,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

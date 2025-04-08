@@ -1,18 +1,15 @@
 import { Component } from '@angular/core';
-import {RegistrationService} from '../services/register/registration-service.service';
+import {RegistrationService} from './registration-service.service';
 import {FormsModule} from '@angular/forms';
+
 
 @Component({
   selector: 'app-register',
-  imports: [
-    FormsModule
-  ],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css'],
+  imports: [FormsModule]
 })
 export class RegisterComponent {
-
-
   user = {
     name: '',
     surname: '',
@@ -23,14 +20,15 @@ export class RegisterComponent {
 
   constructor(private registrationService: RegistrationService) {}
 
-
   register() {
     this.registrationService.register(this.user).subscribe({
-      next: response => {
-        console.log('Rejestracja zakończona sukcesem!', response);
+      next: (response) => {
+        console.log('Registration successful', response);
+        // Add logic like navigation or showing a success message
       },
-      error: err => {
-        console.error('Błąd rejestracji:', err);
+      error: (error) => {
+        console.error('Registration failed', error);
+        // Handle errors (e.g., show error message to user)
       }
     });
   }
