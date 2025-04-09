@@ -8,7 +8,7 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 
 export const routes: Routes = [
-  { path: '', component: MainComponent }, // Strona główna
+  { path: '', component: MainComponent },
   { path: 'account', component: AccountComponent },
   { path: 'bucket', component: BucketComponent },
   { path: 'checkout', component: CheckoutComponent },
