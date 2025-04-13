@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Product {
-  componentlist_id: number;
+  componentlist_id: any;
+  component_id: number;
   brand: string;
   model: string;
   voltage: number;

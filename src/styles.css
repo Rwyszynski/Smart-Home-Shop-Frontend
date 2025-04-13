@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+  margin: 0 auto;
+  max-width: 1260px;
+}
+.sidebar{
+  width: 200px !important;
+}
+.navbar{
+  width:100% !important;
+  padding: 0 !important;
+  border: unset !important;
+}
+.log.currency .img{
+  object-fit: contain;
+}
+.log-btn{
+  color: white !important;
+}
+.log{
+  background:#2a2e2f !important;
+  transition: 0.3s !important;
+  cursor:pointer !important;
+}
+.log:hover{
+  background:#000 !important;
+}
+.container {
+  background-color: rgb(247, 243, 243);
+  padding: 20px;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.navbutton {
+  border: 1px solid white;
+  padding-left: 20px;
+  color: rgb(74, 81, 86);
+  transition: 0.3s;
+  width: 100%;
+  flex: 1;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  line-height: 1.2;
+  height: 70px;
+}

@@ -21,12 +21,13 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-
-
   addToCart(product: Product) {
     const productListId = 1;
 
-    this.http.post<any>(`http://localhost:8080/v1/checkouts/fromProductList/${productListId}`, {}).subscribe({
+    this.http.post<any>(
+      `http://localhost:8080/v1/checkouts/fromProductList/${productListId}`,
+      { productId: product.componentlist_id }
+    ).subscribe({
       next: (checkout) => {
         console.log('Dodano do koszyka:', checkout);
         alert('Produkt dodany do koszyka!');
