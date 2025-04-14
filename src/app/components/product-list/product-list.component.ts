@@ -22,14 +22,12 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(product: Product) {
-    const productListId = 1;
-
+    console.log('Produkt dodawany do koszyka:', product);
     this.http.post<any>(
-      `http://localhost:8080/v1/checkouts/fromProductList/${productListId}`,
-      { productId: product.componentlist_id }
+      `http://localhost:8080/v1/checkouts/fromProduct/${product.component_id}`,
+      {}
     ).subscribe({
       next: (checkout) => {
-        console.log('Dodano do koszyka:', checkout);
         alert('Produkt dodany do koszyka!');
       },
       error: (err) => {
