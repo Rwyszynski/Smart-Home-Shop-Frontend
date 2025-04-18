@@ -48,19 +48,12 @@ export class CheckoutComponent implements OnInit {
 
   removeItem(index: number): void {
     this.cartItems.splice(index, 1);
-    // Można też dodać zapytanie HTTP do backendu usuwające produkt z koszyka
   }
 
   placeOrder(): void {
-    this.http.post('http://localhost:8080/v1/orders', {}).subscribe({
-      next: () => {
-        alert('Zamówienie złożone!');
-        this.cartItems = [];
-      },
-      error: (err) => {
-        console.error('Błąd przy składaniu zamówienia:', err);
-        alert('Nie udało się złożyć zamówienia');
-      }
-    });
-  }
+    if (this.cartItems.length === 0) {
+      alert('Koszyk jest pusty.');
+      return;
+    }
+}
 }

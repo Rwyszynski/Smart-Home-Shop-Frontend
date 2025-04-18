@@ -1,0 +1,41 @@
+<div class="bucketList" *ngIf="cartItems.length > 0; else emptyCart">
+  <table class="orderTab">
+    <tr>
+      <th>Producent</th>
+      <th>Model</th>
+      <th>Ilość</th>
+      <th>Cena</th>
+      <th>Usuń</th>
+    </tr>
+
+    <tr *ngFor="let item of cartItems; let i = index">
+      <td>{{ item.product.brand }}</td>
+      <td>{{ item.product.model }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.product.price }} zł</td>
+      <td><button (click)="removeItem(i)">Usuń</button></td>
+    </tr>
+
+    <tr>
+      <td>Dostawa</td>
+      <td></td>
+      <td></td>
+      <td>23 zł</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td><strong>Suma</strong></td>
+      <td></td>
+      <td></td>
+      <td><strong>{{ getTotal() }} zł</strong></td>
+      <td></td>
+    </tr>
+  </table>
+
+  <button class="payBtn" (click)="placeOrder()">Zapłać</button>
+</div>
+
+<ng-template #emptyCart>
+  <p>Twój koszyk jest pusty.</p>
+</ng-template>

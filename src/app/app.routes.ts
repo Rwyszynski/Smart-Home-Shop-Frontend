@@ -6,6 +6,7 @@ import {BucketComponent} from './bucket/bucket.component';
 import {CheckoutComponent} from './checkout/checkout.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
+import {OrderComponent} from './order/order.component';
 
 export const routes: Routes = [
   { path: '', component: MainComponent },
@@ -14,6 +15,7 @@ export const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'order', component: OrderComponent },
 ];
 
 @NgModule({

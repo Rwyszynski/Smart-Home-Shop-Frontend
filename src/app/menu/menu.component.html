@@ -25,9 +25,9 @@
       Kurs Euro - {{ euroRate | number:'1.2-2' }} zł
     </p>
 
-  <p>
-    Temperatura 23St
-  </p>
+    <p *ngIf="temperature !== null">
+      Temperatura {{ temperature }}°C
+    </p>
   </div>
 
   <div class="backet">
@@ -41,5 +41,5 @@
   <div class="navbutton"><a href="/account" class="nav-btn">Moje konto</a></div>
   <div class="navbutton"><a href="/bucket" class="nav-btn">Koszyk</a></div>
   <div class="navbutton"><a href="" class="nav-btn">Wypróbuj</a></div>
-  <div class="navbutton"><a href="/checkout" class="nav-btn">Do kasy</a></div>
+  <div class="navbutton"><a href="/order" class="nav-btn">Do kasy</a></div>
 </div>

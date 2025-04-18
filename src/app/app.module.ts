@@ -12,6 +12,7 @@ import {CheckoutComponent} from './checkout/checkout.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {FormsModule} from '@angular/forms';
+import {OrderComponent} from './order/order.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,10 @@ import {FormsModule} from '@angular/forms';
       {path: '', component: ProductListComponent},
       {path: 'account', component: AccountComponent},
       {path: 'bucket', component: BucketComponent},
-      {path: 'checkout', component: CheckoutComponent},
+      {path: 'checkout', component: OrderComponent},
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
+      {path: 'order', component: OrderComponent},
     ]),
     AppComponent,
     ProductListComponent,
@@ -38,7 +40,7 @@ import {FormsModule} from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     FormsModule,
-
+    OrderComponent,
 
   ],
   providers: [],

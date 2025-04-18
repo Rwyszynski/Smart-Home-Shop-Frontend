@@ -1,0 +1,55 @@
+.orderTab {
+  border: 2px solid black;
+  margin-left: 100px;
+  margin-top: 50px;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 15px;
+  border: 1px solid black;
+}
+
+th {
+  background-color:#BFFEFF;
+}
+
+.payBtn {
+  padding:5px;
+  background-color:#BFFEFF;
+  margin-left: 90%;
+}
+
+tr:hover {
+  background-color:#d8ebe9;
+}
+
+tr:nth-child(2n) {
+  background-color: #ebedeb;
+}
+
+.bucketList {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.orderTab {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orderTab th, .orderTab td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.payBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
