@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartItem, CheckoutService } from '../services/checkout.service';
 import { HttpClient } from '@angular/common/http';
-import {environment} from '../components/environment';
 
 @Component({
   selector: 'app-order',
@@ -13,11 +12,13 @@ import {environment} from '../components/environment';
 })
 export class OrderComponent {
   cartItems: CartItem[] = [];
+  isLoading: boolean = false;
 
   constructor(
     private checkoutService: CheckoutService,
     private http: HttpClient
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.checkoutService.getCartItems().subscribe({
@@ -26,6 +27,7 @@ export class OrderComponent {
       },
       error: (err: any) => {
         console.error('Błąd podczas pobierania koszyka', err);
+        alert('Nie udało się pobrać zawartości koszyka.');
       }
     });
   }
@@ -35,7 +37,11 @@ export class OrderComponent {
       (total, item) => total + item.product.price * item.quantity,
       0
     );
-    return sum + 23;
+    return sum + this.getDeliveryCost();
+  }
+
+  getDeliveryCost(): number {
+    return 23;
   }
 
   removeItem(index: number): void {
@@ -43,18 +49,26 @@ export class OrderComponent {
   }
 
   placeOrder(): void {
+    const userId = 152;
     const orderPayload = {
-      checkoutId: 202
+      checkoutId: 2802
     };
 
-    this.http.post(`${environment.apiUrl}/orders`, orderPayload).subscribe({
-      next: () => {
+    this.isLoading = true;
+
+    const url = `http://localhost:8080/v1/orders/fromCheckout/${userId}`;
+    console.log("Wysyłam zapytanie POST do: ", url);
+
+    this.http.post(url, orderPayload).subscribe({
+      next: (response) => {
         alert('Zamówienie zostało złożone!');
         this.cartItems = [];
+        this.isLoading = false;
       },
       error: (err: any) => {
         console.error('Błąd przy składaniu zamówienia', err);
         alert('Coś poszło nie tak.');
+        this.isLoading = false;
       }
     });
   }

@@ -20,7 +20,7 @@
       <td>Dostawa</td>
       <td></td>
       <td></td>
-      <td>23 zł</td>
+      <td>{{ getDeliveryCost() }} zł</td>
       <td></td>
     </tr>
 
@@ -33,7 +33,9 @@
     </tr>
   </table>
 
-  <button class="payBtn" (click)="placeOrder()">Zapłać</button>
+  <button class="payBtn" (click)="placeOrder()" [disabled]="isLoading">
+    {{ isLoading ? 'Trwa przetwarzanie...' : 'Zapłać' }}
+  </button>
 </div>
 
 <ng-template #emptyCart>
