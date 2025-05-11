@@ -55,5 +55,5 @@ export class CheckoutComponent implements OnInit {
       alert('Koszyk jest pusty.');
       return;
     }
-}
+  }
 }

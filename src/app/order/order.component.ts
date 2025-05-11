@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartItem, CheckoutService } from '../services/checkout.service';
 import { HttpClient } from '@angular/common/http';
+import {AuthService} from '../services/auth-service.service';
+
 
 @Component({
   selector: 'app-order',
@@ -16,9 +18,9 @@ export class OrderComponent {
 
   constructor(
     private checkoutService: CheckoutService,
-    private http: HttpClient
-  ) {
-  }
+    private http: HttpClient,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.checkoutService.getCartItems().subscribe({
@@ -49,7 +51,12 @@ export class OrderComponent {
   }
 
   placeOrder(): void {
-    const userId = 152;
+    const userId = this.authService.getUserId();
+    if (!userId) {
+      alert('Musisz być zalogowany, aby złożyć zamówienie.');
+      return;
+    }
+
     const orderPayload = {
       checkoutId: 2802
     };
@@ -57,7 +64,7 @@ export class OrderComponent {
     this.isLoading = true;
 
     const url = `http://localhost:8080/v1/orders/fromCheckout/${userId}`;
-    console.log("Wysyłam zapytanie POST do: ", url);
+    console.log('Wysyłam zapytanie POST do:', url);
 
     this.http.post(url, orderPayload).subscribe({
       next: (response) => {
