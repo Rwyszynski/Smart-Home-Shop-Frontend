@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartItem, CheckoutService } from '../services/checkout.service';
+import { CheckoutService } from '../services/checkout.service';
 import { HttpClient } from '@angular/common/http';
-import {AuthService} from '../services/auth-service.service';
-
+import { AuthService } from '../services/auth-service.service';
+import { CartItem } from '../checkout/checkout.component';
 
 @Component({
   selector: 'app-order',
@@ -57,16 +57,12 @@ export class OrderComponent {
       return;
     }
 
-    const orderPayload = {
-      checkoutId: 2802
-    };
-
     this.isLoading = true;
 
     const url = `http://localhost:8080/v1/orders/fromCheckout/${userId}`;
     console.log('Wysyłam zapytanie POST do:', url);
 
-    this.http.post(url, orderPayload).subscribe({
+    this.http.post(url, {}).subscribe({
       next: (response) => {
         alert('Zamówienie zostało złożone!');
         this.cartItems = [];
@@ -74,7 +70,7 @@ export class OrderComponent {
       },
       error: (err: any) => {
         console.error('Błąd przy składaniu zamówienia', err);
-        alert('Coś poszło nie tak.');
+        alert('Coś poszło nie tak przy składaniu zamówienia.');
         this.isLoading = false;
       }
     });

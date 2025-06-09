@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class WeatherService {
-  private apiUrl = 'http://api.weatherstack.com/current?access_key=13571dcff9c892ab30597f70669e9086&query=Warsaw';
+  private apiUrl = 'http://localhost:8080/api/weather/temperature';
 
   constructor(private http: HttpClient) {}
 
-  getCurrentTemperature(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+  getCurrentTemperature(): Observable<number> {
+    return this.http.get<number>(this.apiUrl);
   }
 }

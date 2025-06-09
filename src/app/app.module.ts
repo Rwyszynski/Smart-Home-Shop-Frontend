@@ -41,7 +41,6 @@ import {OrderComponent} from './order/order.component';
     RegisterComponent,
     FormsModule,
     OrderComponent,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

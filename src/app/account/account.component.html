@@ -1,16 +1,14 @@
-<div class="bucketList">
-
-  <table class="orderTab">
-    <tr>
-      <th>Nr Zamówienie</th>
-      <th>Data Zamówienia</th>
-      <th>Data dostawy</th>
-    </tr>
-    <tr>
-      <td>123</td>
-      <td>02.04.2025</td>
-      <td>04.04.2025</td>
-    </tr>
-  </table>
-
-</div>
+<table class="orderTab">
+  <tr>
+    <th>Nr Zamówienia</th>
+    <th>Data Zamówienia</th>
+    <th>Status</th>
+    <th>Użytkownik ID</th>
+  </tr>
+  <tr *ngFor="let order of orders">
+    <td>{{ order.orderId }}</td>
+    <td>{{ order.orderDate }}</td>
+    <td>{{ order.orderStatus }}</td>
+    <td>{{ order.userId }}</td>
+  </tr>
+</table>

@@ -10,7 +10,7 @@ interface Product {
   url: string;
 }
 
-interface CartItem {
+export interface CartItem {
   product: Product;
   quantity: number;
 }

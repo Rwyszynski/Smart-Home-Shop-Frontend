@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ExchangeRateService } from '../services/exchange-rate.service';
 import { WeatherService } from '../services/weather.service';
-import { DecimalPipe, CommonModule } from '@angular/common'; // <- dodaj CommonModule
+import { DecimalPipe, CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-menu',

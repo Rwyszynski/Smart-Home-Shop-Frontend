@@ -1,25 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {environment} from '../components/environment';
+import { environment } from '../components/environment';
+import {CartItem} from '../models/cart-item.model';
 
-export interface Product {
-  brand: string;
-  model: string;
-  price: number;
-}
-
-export interface CartItem {
-  product: Product;
-  quantity: number;
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class CheckoutService {
   private checkoutUrl = `${environment.apiUrl}/checkouts`;
-  private orderUrl = `${environment.apiUrl}/orders`;
+  private checkoutId: number | null = null;
 
   constructor(private http: HttpClient) {}
 
@@ -27,7 +18,11 @@ export class CheckoutService {
     return this.http.get<CartItem[]>(this.checkoutUrl);
   }
 
-  createOrder(orderPayload: any): Observable<any> {
-    return this.http.post(this.orderUrl, orderPayload);
+  setCheckoutId(id: number): void {
+    this.checkoutId = id;
+  }
+
+  getCheckoutId(): number | null {
+    return this.checkoutId;
   }
 }
